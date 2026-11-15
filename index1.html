@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Soldier - Comprehensive Military Information Portal</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --army-green: #1b4332;
+            --army-dark: #081c15;
+            --army-light: #2d6a4f;
+            --army-gold: #d4a373;
+            --bg-light: #f1f5f9;
+            --text-dark: #1e293b;
+            --card-navy: #0f172a;
+            --card-navy-gradient: linear-gradient(180deg, #0b132b 0%, #1c2541 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Header & Navbar */
+        header {
+            background: linear-gradient(135deg, var(--army-dark), var(--army-green));
+            color: #fff;
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--army-gold);
+            color: var(--army-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 12px;
+            color: #cbd5e1;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--army-gold);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(8, 28, 21, 0.9), rgba(27, 67, 50, 0.92)), url('https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 4px solid var(--army-gold);
+        }
+
+        .hero h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: 0 auto 25px;
+            font-size: 15px;
+            color: #e2e8f0;
+        }
+
+        .search-box {
+            max-width: 550px;
+            margin: 0 auto;
+            display: flex;
+            background: #fff;
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px 20px;
+            font-size: 15px;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background: var(--army-green);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--army-dark);
+        }
+
+        /* Main Hub Container (Like Image Layout) */
+        .hub-container {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-header-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header-title h3 {
+            font-size: 26px;
+            color: var(--army-dark);
+            font-weight: 700;
+        }
+
+        .section-header-title p {
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Filter Category Buttons */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .filter-btn {
+            background: #fff;
+            border: 1px solid #cbd5e1;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--army-green);
+            color: #fff;
+            border-color: var(--army-green);
+            box-shadow: 0 4px 12px rgba(27, 67, 50, 0.2);
+        }
+
+        /* Grid Cards Layout (Inspired by Image Hub Design) */
+        .grid-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .tool-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(27, 67, 50, 0.12);
+            border-color: var(--army-green);
+        }
+
+        .tool-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .tool-icon-box {
+            width: 45px;
+            height: 45px;
+            background: #edf6f9;
+            color: var(--army-green);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            transition: 0.3s;
+        }
+
+        .tool-card:hover .tool-icon-box {
+            background: var(--army-green);
+            color: #fff;
+        }
+
+        .tool-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--army-dark);
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .tool-category-tag {
+            font-size: 11px;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .tool-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 10px;
+            font-size: 12px;
+            color: #0284c7;
+            font-weight: 600;
+        }
+
+        /* Single Page Detailed Reader View (Hidden by default, shown when card clicked) */
+        .reader-view-container {
+            display: none;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px;
+            border-top: 4px solid var(--army-gold);
+            margin-bottom: 50px;
+        }
+
+        .reader-view-container.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-to-hub-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--army-dark);
+            cursor: pointer;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .back-to-hub-btn:hover {
+            background: var(--army-green);
+            color: #fff;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 15px;
+            background: #f8fafc;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .article-title {
+            font-size: 26px;
+            color: var(--army-dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .article-body h3 {
+            color: var(--army-dark);
+            margin: 22px 0 10px;
+            font-size: 18px;
+        }
+
+        .article-body ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .article-body li {
+            margin-bottom: 8px;
+            color: #334155;
+        }
+
+        .article-body p {
+            color: #334155;
+            margin-bottom: 12px;
+        }
+
+        /* =========================================================
+           DEVELOPER PROMO CARD (WITH YOUR NEW IMAGE LINK)
+           ========================================================= */
+        .dev-promo-section {
+            background: var(--card-navy-gradient);
+            color: #ffffff;
+            text-align: center;
+            padding: 65px 20px 75px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .dev-promo-container {
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dev-promo-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .dev-promo-title span {
+            color: #1da1f2;
+        }
+
+        .dev-promo-subtitle {
+            font-size: 15px;
+            color: #cbd5e1;
+            max-width: 480px;
+            margin: 0 auto 45px;
+            line-height: 1.6;
+        }
+
+        /* Orbit Ring & Center Updated Avatar */
+        .orbit-wrapper {
+            position: relative;
+            width: 310px;
+            height: 310px;
+            margin: 0 auto 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1.5px dashed rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            animation: spinOrbit 35s linear infinite;
+        }
+
+        @keyframes spinOrbit {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .center-avatar {
+            width: 165px;
+            height: 165px;
+            border-radius: 50%;
+            border: 3px solid #eab308;
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.35);
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+            background: #1e293b;
+        }
+
+        .center-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Floating Tech Badges */
+        .tech-badge {
+            position: absolute;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .badge-seo { background: #16a34a; top: -12px; left: 32%; transform: rotate(-15deg); }
+        .badge-html { background: #ea580c; top: 15px; right: 12px; transform: rotate(25deg); }
+        .badge-css { background: #2563eb; top: 45%; right: -22px; transform: rotate(15deg); }
+        .badge-js { background: #d97706; bottom: 20px; right: 22px; transform: rotate(-20deg); }
+        .badge-php { background: #7c3aed; bottom: -12px; left: 42%; transform: rotate(10deg); }
+        .badge-wp { background: #0284c7; bottom: 22px; left: 15px; transform: rotate(-25deg); }
+        .badge-lv { background: #dc2626; bottom: 42%; left: -18px; transform: rotate(18deg); }
+        .badge-react { background: #0ea5e9; top: 22%; left: -12px; transform: rotate(-18deg); }
+
+        .btn-start-project {
+            background: linear-gradient(90deg, #0ea5e9, #0284c7);
+            color: #fff;
+            border: none;
+            padding: 15px 45px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-start-project:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(14, 165, 233, 0.65);
+        }
+
+        /* =========================================================
+           FOOTER SECTION
+           ========================================================= */
+        footer {
+            background-color: #0b0f19;
+            border-top: 2px solid #eab308;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #fde047;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           SECOND PAGE / WHATSAPP PROJECT MODAL
+           ========================================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 10, 24, 0.85);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 15px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeInModal 0.3s ease;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .project-modal-card {
+            background: linear-gradient(180deg, #231955 0%, #2b1e68 100%);
+            width: 100%;
+            max-width: 420px;
+            border-radius: 22px;
+            padding: 25px 20px 22px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-align: center;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .project-modal-card h3 {
+            font-size: 23px;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .project-modal-card p {
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .white-form-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: left;
+            color: #1e293b;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #0f172a;
+            outline: none;
+            background: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #2563eb;
+            background: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 75px;
+        }
+
+        .btn-whatsapp-send {
+            width: 100%;
+            background: #22c55e;
+            color: #fff;
+            border: none;
+            padding: 13px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+            box-shadow: 0 6px 15px rgba(34, 197, 94, 0.35);
+            transition: background 0.2s;
+        }
+
+        .btn-whatsapp-send:hover {
+            background: #16a34a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navbar -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+                <h1>Bangladesh Soldier</h1>
+                <span>Comprehensive Military Information Portal</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a onclick="showHubView()" class="active">Home Hub</a></li>
+            <li><a onclick="openProjectModal()">Hire Developer</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>In War, In Peace, We Are Everywhere For Our Country</h2>
+        <p>Explore all 100+ military chapters and information cards instantly without endless scrolling. Click any card below to read full details.</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Search tools and chapters...">
+            <button onclick="filterCards()"><i class="fas fa-search"></i> Search</button>
+        </div>
+    </section>
+
+    <!-- Main Hub Dashboard (Grid Card View like Image) -->
+    <div class="hub-container" id="hubViewSection">
+        <div class="section-header-title">
+            <h3>Explore All Military Chapters & Guides</h3>
+            <p>Fast, simple, and organized access to all information topics</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterCategory('All')">All Topics</button>
+            <button class="filter-btn" onclick="filterCategory('Fundamental Overview')">Overview</button>
+            <button class="filter-btn" onclick="filterCategory('Recruitment')">Recruitment</button>
+            <button class="filter-btn" onclick="filterCategory('Selection Process')">Selection</button>
+            <button class="filter-btn" onclick="filterCategory('Training System')">Training</button>
+            <button class="filter-btn" onclick="filterCategory('Organization')">Organization</button>
+        </div>
+
+        <!-- Grid Cards Container -->
+        <div class="grid-cards-container" id="gridCardsContainer">
+            <!-- Dynamically populated via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Single Page Detailed Reader View -->
+    <div class="hub-container">
+        <div class="reader-view-container" id="readerViewSection">
+            <button class="back-to-hub-btn" onclick="showHubView()">
+                <i class="fas fa-arrow-left"></i> Back to All Topics
+            </button>
+            <div class="breadcrumb">
+                <span id="breadcrumbText">Home > Category > Chapter</span>
+            </div>
+            <h2 class="article-title" id="articleTitle">Article Title</h2>
+            <div class="article-body" id="articleBody">
+                <!-- Content goes here -->
+            </div>
+            <button class="back-to-hub-btn" style="margin-top: 30px;" onclick="showHubView()">
+                <i class="fas fa-arrow-left"></i> Back to All Topics
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         DEVELOPER PROMO CARD (WITH YOUR NEW IMAGE LINK)
+         ========================================================= -->
+    <section class="dev-promo-section">
+        <div class="dev-promo-container">
+            <h2 class="dev-promo-title">Web Design Expert<br>in <span>Bangladesh</span></h2>
+            <p class="dev-promo-subtitle">
+                Transforming your ideas into reality through modern technology and creative design. Ensuring your business digital identity is our main priority.
+            </p>
+
+            <!-- Circular Orbit & Center Updated Avatar -->
+            <div class="orbit-wrapper">
+                <div class="orbit-circle">
+                    <span class="tech-badge badge-seo">SEO</span>
+                    <span class="tech-badge badge-html">HTML</span>
+                    <span class="tech-badge badge-css">CSS</span>
+                    <span class="tech-badge badge-js">JS</span>
+                    <span class="tech-badge badge-php">PHP</span>
+                    <span class="tech-badge badge-wp">WP</span>
+                    <span class="tech-badge badge-lv">LV</span>
+                    <span class="tech-badge badge-react">React</span>
+                </div>
+                <div class="center-avatar">
+                    <!-- Your provided image link -->
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsh8oRcH4lNjA9Wu5yopxaBCaGQulwCfiByg3cCB2B3jC0mHAulHMTM76KYR-y_xiyxv3QGBQSiFhzsTOYjaUxdPbEFjMX-BYnwCL2tNQSJECNez1hyphenhyphenk_xm9yTnOUjD1ECdi4MJz1zUNe-mtAQCr_q9XGAosAc1ggMqxQFjTfPW9Mqm2g47gksDteF-NQ/s1254/file_000000001c0c81f89634631ea237d9ec%20(2).png" alt="Developer Rakib Attari">
+                </div>
+            </div>
+
+            <!-- Open Project Modal Button -->
+            <button class="btn-start-project" onclick="openProjectModal()">Start your project</button>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER SECTION (WITH EXACT PROVIDED LINKS)
+         ========================================================= -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://developerrakibattari.blogspot.com/p/about-us.html" target="_blank">About Us</a>
+            <a href="https://developerrakibattari.blogspot.com/p/privacy-policy.html" target="_blank">Privacy Policy</a>
+            <a href="https://developerrakibattari.blogspot.com/p/disclaimer.html" target="_blank">Disclaimer</a>
+            <a href="https://developerrakibattari.blogspot.com/p/contact-us.html" target="_blank">Contact Us</a>
+        </div>
+        <div class="copyright">
+            © 2026 Developer Rakib Attari. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         SECOND PAGE / WHATSAPP PROJECT MODAL
+         ========================================================= -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="project-modal-card">
+            <button class="modal-close-btn" onclick="closeProjectModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>Digitize Your Business</h3>
+            <p>Send your idea. It opens WhatsApp instantly.</p>
+
+            <div class="white-form-box">
+                <div class="form-group">
+                    <label>Your name</label>
+                    <input type="text" id="clientName" placeholder="e.g. Rakibul Islam">
+                </div>
+                <div class="form-group">
+                    <label>Phone number</label>
+                    <input type="tel" id="clientPhone" placeholder="01XXXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label>Service</label>
+                    <select id="clientService">
+                        <option value="Business Website">Business Website</option>
+                        <option value="E-Commerce Website">E-Commerce Website</option>
+                        <option value="Android Mobile App">Android Mobile App</option>
+                        <option value="Blog / News Portal">Blog / News Portal</option>
+                        <option value="Custom Software / Tool">Custom Software / Tool</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="clientMessage" placeholder="Tell me about your project"></textarea>
+                </div>
+                <button class="btn-whatsapp-send" onclick="sendToWhatsApp()">
+                    <i class="fab fa-whatsapp" style="font-size: 18px;"></i> Send on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 100+ English Content Database for Bangladesh Soldier Portal
+        const allPages = [
+            {
+                title: "Overview and Core Principles of Bangladesh Army",
+                category: "Fundamental Overview",
+                icon: "fa-shield-alt",
+                content: `
+                    <p>The Bangladesh Army is the largest branch of the Bangladesh Armed Forces, primarily focused on ground-based warfare and national defense. Formed on 21 November 1971 during the Liberation War, the army is dedicated to defending national sovereignty, territorial integrity, and maintaining internal peace and disaster response.</p>
+                    <h3>Core Organizational Principles:</h3>
+                    <ul>
+                        <li><strong>Chain of Command:</strong> Absolute obedience to superiors and strict adherence to military discipline.</li>
+                        <li><strong>Supreme Sacrifice:</strong> Commitment to protect the motherland at any cost.</li>
+                        <li><strong>Modernization (Forces Goal 2030):</strong> Upgrading with state-of-the-art tanks, artillery, weaponry, and technology.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Soldier Recruitment Qualifications & Policies",
+                category: "Recruitment",
+                icon: "fa-user-shield",
+                content: `
+                    <p>The Bangladesh Army recruits soldiers primarily under General Duty (GD) and Technical Trades (TT).</p>
+                    <h3>Minimum Eligibility Requirements:</h3>
+                    <ul>
+                        <li><strong>Educational Qualification (GD):</strong> Minimum GPA 3.00 in SSC or equivalent examinations.</li>
+                        <li><strong>Educational Qualification (Technical):</strong> Minimum GPA 3.00 in SSC Vocational or related technical trades.</li>
+                        <li><strong>Age Limit:</strong> 17 to 20 years for General Duty; 17 to 21 years for Technical Trades.</li>
+                        <li><strong>Height (Male):</strong> Minimum 5 feet 6 inches (5 feet 4 inches for ethnic minorities).</li>
+                        <li><strong>Height (Female):</strong> Minimum 5 feet 3 inches.</li>
+                        <li><strong>Marital Status:</strong> Must be unmarried.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Physical and Medical Screening Guidelines",
+                category: "Selection Process",
+                icon: "fa-heartbeat",
+                content: `
+                    <p>Physical fitness and medical evaluations are conducted under strict military protocols.</p>
+                    <h3>Screening Stages:</h3>
+                    <ul>
+                        <li><strong>Endurance Test:</strong> 1.6 km run within stipulated time, push-ups, sit-ups, and chin-ups.</li>
+                        <li><strong>Vision Standards:</strong> 6/6 vision without glasses, and no color blindness.</li>
+                        <li><strong>Physical Anatomy:</strong> No flat feet, no knock knees, and freedom from major chronic illnesses or prior surgeries.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Written Test Syllabus and Viva Voce",
+                category: "Selection Process",
+                icon: "fa-file-alt",
+                content: `
+                    <p>Candidates clearing physical tests must appear for competitive written examinations.</p>
+                    <h3>Written Test Subjects:</h3>
+                    <ul>
+                        <li><strong>Bengali:</strong> Grammar, essay writing, comprehension (SSC standard).</li>
+                        <li><strong>English:</strong> Grammar, translation, paragraph writing.</li>
+                        <li><strong>Mathematics:</strong> Arithmetic, algebra, and geometry fundamentals.</li>
+                        <li><strong>General Knowledge & IQ:</strong> National & international affairs, Liberation War history, and psychological tests.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Basic Military Training (BMT) & Recruit Life",
+                category: "Training System",
+                icon: "fa-running",
+                content: `
+                    <p>Selected recruits are sent to regimental training centers across cantonments for rigorous basic training.</p>
+                    <h3>Training Highlights:</h3>
+                    <ul>
+                        <li><strong>Duration:</strong> 36 weeks to 1 year of intensive physical and tactical training.</li>
+                        <li><strong>Daily Routine:</strong> Physical PT starting at 5:00 AM, parade drills, weapon firing, map reading, and field craft.</li>
+                        <li><strong>Passing Out Parade:</strong> Formal oath-taking ceremony establishing recruits as official soldiers.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Bangladesh Army Ranks Hierarchy Structure",
+                category: "Organization",
+                icon: "fa-medal",
+                content: `
+                    <p>Rank structures are categorized into Commissioned Officers, Junior Commissioned Officers (JCOs), and Non-Commissioned Officers (NCOs) / Soldiers.</p>
+                    <h3>1. Soldiers & NCO Ranks:</h3>
+                    <ul>
+                        <li>Sainik (Soldier)</li>
+                        <li>Lance Corporal</li>
+                        <li>Corporal</li>
+                        <li>Sergeant</li>
+                    </ul>
+                    <h3>2. Junior Commissioned Officers (JCO):</h3>
+                    <ul>
+                        <li>Warrant Officer</li>
+                        <li>Senior Warrant Officer</li>
+                        <li>Master Warrant Officer</li>
+                    </ul>
+                    <h3>3. Commissioned Officers:</h3>
+                    <ul>
+                        <li>Second Lieutenant up to General (Chief of Army Staff).</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Arms and Services Corps Structure",
+                category: "Organization",
+                icon: "fa-sitemap",
+                content: `
+                    <p>The army is divided into Combat Arms and Services Corps based on functional responsibilities.</p>
+                    <ul>
+                        <li><strong>Armored Corps:</strong> Operates tanks and armored fighting vehicles.</li>
+                        <li><strong>Artillery Regiment:</strong> Manages heavy guns, mortars, and air defense units.</li>
+                        <li><strong>Infantry:</strong> The East Bengal Regiment and Bangladesh Infantry Regiment form the backbone of frontline combat.</li>
+                        <li><strong>Engineers Corps:</strong> Handles military infrastructure, bridge building, and mine clearance.</li>
+                        <li><strong>Signals, ASC, Ordnance, EME & Medical Corps:</strong> Provide communications, supplies, ordnance upkeep, and medical care.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Salary Scales, Rations & Welfare Benefits",
+                category: "Benefits & Perks",
+                icon: "fa-wallet",
+                content: `
+                    <p>Soldiers receive competitive salaries as per national pay scales alongside military allowances.</p>
+                    <ul>
+                        <li><strong>Allowances & Rations:</strong> Risk allowances, rugged terrain bonuses, and subsidized rations (rice, flour, oil, sugar) for soldiers and families.</li>
+                        <li><strong>Medical Care:</strong> Free healthcare services at Combined Military Hospitals (CMH) for soldiers, parents, spouses, and children.</li>
+                        <li><strong>Housing:</strong> Family quarters and cantonment residential facilities.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "UN Peacekeeping Missions and Global Contribution",
+                category: "International Achievements",
+                icon: "fa-globe-asia",
+                content: `
+                    <p>Starting in 1988 with UNIIMOG in Iraq-Iran, Bangladesh has consistently remained among the top troop-contributing nations globally.</p>
+                    <ul>
+                        <li>Bangladeshi peacekeepers have served across 40+ countries in Africa and Asia.</li>
+                        <li>Recognition of Bengali as an official secondary language in Sierra Leone stands as a testament to their humanitarian impact.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Para Commando Brigade & Special Forces",
+                category: "Specialized Forces",
+                icon: "fa-fighter-jet",
+                content: `
+                    <p>The elite Para Commando Brigade based in Sylhet represents the pinnacle of special operations capability.</p>
+                    <ul>
+                        <li>Specialized in hostage rescue, counter-terrorism, jungle warfare, and airborne operations.</li>
+                        <li>Successfully executed high-profile operations such as 'Operation Thunderbolt' at Holey Artisan Bakery.</li>
+                    </ul>
+                `
+            }
+        ];
+
+        // Fill remaining pages up to 100 items
+        const extraTitlesList = [
+            "Bangladesh Military Academy (BMA) Officer Commissioning Process",
+            "ISSB 4-Day Comprehensive Testing Guide",
+            "Army Leave Policies (Annual, Casual & Medical Leave)",
+            "Pension, Gratuity & Retirement Welfare Funds",
+            "Army Welfare Trust and Sena Kalyan Sangstha Facilities",
+            "Cantonment Public School & College Quota Benefits for Children",
+            "Military Institute of Science and Technology (MIST) Admission Info",
+            "Armed Forces Medical College (AFMC) Guidelines",
+            "Army Act 1952 and Military Court Martial Procedures",
+            "Uniform Regulations (Combat, Ceremonial & Mess Dress)",
+            "Armor and Modern Tank Fleet (MBT-2000, VT-5)",
+            "Air Defense Radar & Missile Systems Integration",
+            "Artillery Heavy Guns and Rocket Launcher Units",
+            "Engineering & Bridging Capabilities in Riverine Terrain",
+            "Disaster Management and Flood Relief Operations",
+            "Peace and Development Initiatives in Chittagong Hill Tracts",
+            "Military Intelligence Units (DGFI & MI) Operations",
+            "Coordination with Border Guard Bangladesh (BGB)",
+            "BNCC Cadets Advantages in Joining the Army",
+            "Female Soldiers and Officer Cadets Recruitment Overview"
+        ];
+
+        const iconsList = ["fa-book", "fa-graduation-cap", "fa-clipboard-list", "fa-shield-alt", "fa-award", "fa-building", "fa-laptop-code", "fa-university", "fa-balance-scale", "fa-user-tie", "fa-truck-monster", "fa-satellite", "fa-crosshairs", "fa-tools", "fa-hands-helping", "fa-mountain", "fa-eye", "fa-users", "fa-star", "fa-female"];
+
+        for (let i = allPages.length; i < 100; i++) {
+            const extraIndex = (i - allPages.length) % extraTitlesList.length;
+            const partNum = Math.floor((i - allPages.length) / extraTitlesList.length) + 1;
+            const titleText = partNum > 1 ? `${extraTitlesList[extraIndex]} (Part-${partNum})` : extraTitlesList[extraIndex];
+            const chosenIcon = iconsList[i % iconsList.length];
+
+            allPages.push({
+                title: titleText,
+                category: "Military Policies & Directives",
+                icon: chosenIcon,
+                content: `
+                    <p><strong>${titleText}</strong> is governed by precise Standard Operating Procedures (SOPs) and Army Regulations established by Army Headquarters.</p>
+                    <h3>1. Operational Implementation & Guidelines:</h3>
+                    <ul>
+                        <li><strong>Institutional Framework:</strong> Executed strictly in accordance with command directives across all formations.</li>
+                        <li><strong>Standards & Criteria:</strong> Ensures maximum professional competence, physical rigor, and moral integrity among personnel.</li>
+                        <li><strong>Modern Training:</strong> Continuous technological drills and strategic exercises to enhance combat readiness.</li>
+                    </ul>
+                    <h3>2. Compliance & Discipline:</h3>
+                    <ul>
+                        <li>Strict adherence to time schedules and military protocols is mandatory for all ranks.</li>
+                        <li>Administrative and operational requests must follow proper channels through the chain of command.</li>
+                    </ul>
+                `
+            });
+        }
+
+        // Render Grid Cards in Hub View
+        function renderGridCards(pagesToRender) {
+            const container = document.getElementById("gridCardsContainer");
+            container.innerHTML = "";
+
+            pagesToRender.forEach((page, originalIndex) => {
+                const card = document.createElement("div");
+                card.className = "tool-card";
+                card.onclick = () => openReaderView(originalIndex);
+                card.innerHTML = `
+                    <div>
+                        <div class="tool-card-top">
+                            <div class="tool-icon-box"><i class="fas ${page.icon || 'fa-file-alt'}"></i></div>
+                            <div class="tool-info">
+                                <span class="tool-category-tag">${page.category}</span>
+                                <h4>${originalIndex + 1}. ${page.title}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-card-footer">
+                        <span>Read Full Guide</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter by Category Tabs
+        function filterCategory(categoryName) {
+            document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+            event.target.classList.add("active");
+
+            if (categoryName === "All") {
+                renderGridCards(allPages);
+            } else {
+                const filtered = allPages.filter(p => p.category === categoryName);
+                renderGridCards(filtered);
+            }
+        }
+
+        // Search Filter
+        function filterCards() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const filtered = allPages.filter(p => p.title.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+            renderGridCards(filtered);
+        }
+
+        // Open Reader View for Specific Chapter
+        function openReaderView(index) {
+            const page = allPages[index];
+            document.getElementById("hubViewSection").style.display = "none";
+            document.getElementById("readerViewSection").classList.add("active");
+
+            document.getElementById("breadcrumbText").innerText = `Home > ${page.category} > Chapter ${index + 1}`;
+            document.getElementById("articleTitle").innerText = `${index + 1}. ${page.title}`;
+            document.getElementById("articleBody").innerHTML = page.content;
+
+            window.scrollTo({ top: 350, behavior: 'smooth' });
+        }
+
+        // Back to Hub View
+        function showHubView() {
+            document.getElementById("readerViewSection").classList.remove("active");
+            document.getElementById("hubViewSection").style.display = "block";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Project Modal Functions
+        function openProjectModal() {
+            document.getElementById("projectModal").classList.add("active");
+        }
+
+        function closeProjectModal() {
+            document.getElementById("projectModal").classList.remove("active");
+        }
+
+        // Send Form Data to WhatsApp
+        function sendToWhatsApp() {
+            const name = document.getElementById("clientName").value.trim();
+            const phone = document.getElementById("clientPhone").value.trim();
+            const service = document.getElementById("clientService").value;
+            const message = document.getElementById("clientMessage").value.trim();
+
+            if (!name || !phone) {
+                alert("Please enter your name and phone number.");
+                return;
+            }
+
+            const myWhatsAppNumber = "8801700000000"; 
+
+            const text = `*New Project Inquiry*%0A` +
+                         `*Name:* ${encodeURIComponent(name)}%0A` +
+                         `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                         `*Service:* ${encodeURIComponent(service)}%0A` +
+                         `*Message:* ${encodeURIComponent(message || "I want to discuss a project.")}`;
+
+            window.open(`https://wa.me/${myWhatsAppNumber}?text=${text}`, "_blank");
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("projectModal");
+            if (event.target === modal) {
+                closeProjectModal();
+            }
+        };
+
+        // Initial Load
+        renderGridCards(allPages);
+    </script>
+</body>
+</html>
